@@ -8,6 +8,7 @@ public class StatuteReader {
         Parser.parse(arguments);
         System.out.println(Parser.getScanner().nextLine());
 
+
         while(!q){
             System.out.println("Type q to quit");
             System.out.println("Type t to see table of content");
