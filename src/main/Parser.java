@@ -1,18 +1,18 @@
-import java.io.Console;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Parser{
-    private static Scanner scanner;
-    private static StatuteType fileType;
+    private Scanner scanner;
+    private StatuteType fileType;
 
 
     //-----------------------------------------------------------------\\
     // openFile returns null if file with given path cannot be opened  \\
     // openFile returns Scanner if file exists and can be opened       \\
     //-----------------------------------------------------------------\\
-    private static Scanner openFile(String path){
+    private Scanner openFile(String path){
         Scanner result = null;
         FileInputStream inputStream = null;
 
@@ -34,7 +34,7 @@ public class Parser{
     // Constructor checks whether or not one of the arguments is path to the desired file  \\
     // and assigns this path to 'filePath' and assigns Scanner to 'scanner' variable       \\
     //-------------------------------------------------------------------------------------\\
-    public static void parse(String[] arguments){
+    public void parse(String[] arguments){
         boolean foundRightFile = false;
         Scanner tmpScanner;
         StatuteType tmpType = null;
@@ -81,7 +81,7 @@ public class Parser{
     // checkType returns the type of the file with 'file' handle variable \\
     // checkType returns null if it is not the desirable file             \\
     //--------------------------------------------------------------------\\
-    private static StatuteType checkType(Scanner file){
+    private StatuteType checkType(Scanner file){
         for(int i = 0; (i < 50) && (file.hasNextLine()); i++){
             String readLine = file.nextLine();
             if(readLine.equals("KONSTYTUCJA")) return StatuteType.Constitution;
@@ -90,10 +90,10 @@ public class Parser{
         return null;
     }
 
-    public static StatuteType getFileType() {
+    public StatuteType getFileType() {
         return fileType;
     }
-    public static Scanner getScanner(){ return scanner; }
+    public Scanner getScanner(){ return scanner; }
 }
 
 enum StatuteType {

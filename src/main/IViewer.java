@@ -1,3 +1,5 @@
+
+
 public interface IViewer {
     public void viewTable();
     public void viewArticle(String articleNo);

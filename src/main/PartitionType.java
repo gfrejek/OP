@@ -1,7 +1,8 @@
+
 public enum PartitionType {
     Section,
-    Chapter1,       // act
-    Chapter2,       // constitution
+    Chapter,       // act
+    //Chapter2,       // constitution
     Article,
     Paragraph,      // aka "Ustęp"
     Point,
