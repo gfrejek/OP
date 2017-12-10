@@ -49,6 +49,10 @@ public class TextCutterTest{
         assertEquals(firstWord("Abc. def ghi"), "Abc.");
         assertEquals(firstWord("abc def ghi"), "abc");
         assertEquals(firstWord("abc. def ghi"), "abc.");
+        assertEquals(firstWord("Art. 1."), "Art.");
+        assertEquals(firstWord("1."), "1.");
+
+
 
         assertEquals(deletedFirstWord("Abc def ghi"), "def ghi");
         assertEquals(deletedFirstWord("Abc. def ghi"), "def ghi");

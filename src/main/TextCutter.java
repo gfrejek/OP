@@ -14,7 +14,7 @@ public class TextCutter {
     }
 
 
-    public void cutPackAdd(Scanner scanner, StatuteType type){
+    public void cutPackAdd(Scanner scanner){
 
         String nextLine = "";
         String tmp = "";
@@ -34,20 +34,32 @@ public class TextCutter {
 
 
                 case Text:
-                    if(/*type == StatuteType.Constitution && */nextLine.charAt(nextLine.length()-1) == '-'){
+                    while(nextLine.charAt(nextLine.length()-1) == '-'){
                         tmp = scanner.nextLine();
+                        if(assignType(tmp) == PartitionType.Trash2){
+                            tmp = scanner.nextLine();
+                            tmp = scanner.nextLine();
+                        }
+
                         nextLine = nextLine.substring(0, nextLine.length()-1);
                         nextLine += firstWord(tmp);
                         tmp = deletedFirstWord(tmp);
                         if(!tmp.equals("")) nextLine += System.lineSeparator() + tmp;
                     }
-                    if(currentNode != null) currentNode.addText(nextLine);
+                    if(currentNode != null) {
+                        if(currentNode.getPartitionType() == PartitionType.Chapter){
+                            currentNode.setPartitionName(currentNode.getPartitionName() + " " + nextLine);
+                        }
+                        else {
+                            currentNode.addText(nextLine);
+                        }
+                    }
                     break;
 
 
                 case Section:
                     currentNode = new TextPartition(PartitionType.Section);
-                    nextLine += scanner.nextLine();
+                    nextLine += System.lineSeparator() + scanner.nextLine();
                     currentNode.setPartitionName(nextLine);
                     addPartition(currentNode);
                     break;
@@ -55,13 +67,14 @@ public class TextCutter {
 
                 case Chapter:
                     currentNode = new TextPartition(PartitionType.Chapter);
-                    if(type == StatuteType.Act) nextLine += scanner.nextLine();
+                    if(type == StatuteType.Act) nextLine += System.lineSeparator() + scanner.nextLine();
                     currentNode.setPartitionName(nextLine);
                     addPartition(currentNode);
                     break;
 
 
                 case Article:
+                    if(type == StatuteType.Act && deletedFirstWord(deletedFirstWord(nextLine)).substring(0, 7).equals("(pomini")) break;
                     currentNode = new TextPartition(PartitionType.Article);
 
                     if(type == StatuteType.Constitution){
@@ -83,6 +96,14 @@ public class TextCutter {
                 case Paragraph: case Point: case Subpoint:
                     currentNode = new TextPartition(assignType(nextLine));
                     currentNode.setPartitionName(firstWord(nextLine));
+
+                    while(nextLine.charAt(nextLine.length()-1) == '-'){
+                        tmp = scanner.nextLine();
+                        nextLine = nextLine.substring(0, nextLine.length()-1);
+                        nextLine += firstWord(tmp);
+                        if(!deletedFirstWord(tmp).equals("")) nextLine += System.lineSeparator() + deletedFirstWord(tmp);
+                    }
+
                     currentNode.addText(deletedFirstWord(nextLine));
                     addPartition(currentNode);
                     break;
@@ -156,7 +177,7 @@ public class TextCutter {
 
             case Article:
                 tmp = cutFile.getLast();                                // tmp = latest Section
-                if(!tmp.isListEmpty()) tmp = tmp.lastSubPartition();    // tmp = latest Chapter of latest Section
+                if(!tmp.isListEmpty() && tmp.lastSubPartition().getPartitionType() == PartitionType.Chapter) tmp = tmp.lastSubPartition();    // tmp = latest Chapter of latest Section
                 tmp.addSubPartition(addition);                          // We add newest Article to the latest Chapter
                 break;
 
@@ -184,5 +205,9 @@ public class TextCutter {
                 tmp.addSubPartition(addition);                          // add SubPoint
                 break;
         }
+    }
+
+    public LinkedList<TextPartition> getPartitionsList(){
+        return cutFile;
     }
 }

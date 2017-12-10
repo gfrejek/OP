@@ -22,31 +22,33 @@ public class TextPartition {
     }
 
     public String toString(){
+
         StringBuilder builder = new StringBuilder();
         builder.append(partitionName);
-
-        if(partitionType == PartitionType.Section ||
-           partitionType == PartitionType.Chapter ||
-           partitionType == PartitionType.Article)
-               builder.append(System.lineSeparator());
-        else   builder.append(" ");
-
-        builder.append(text);
-        builder.append(System.lineSeparator());
-        for(TextPartition i : subPartitions){
-             builder.append(i.toString());
-             builder.append(System.lineSeparator());
+        if(!text.equals("")){
+            builder.append(text);
         }
+        builder.append(System.lineSeparator());
+
+
+        if(!this.isListEmpty()){
+            for(TextPartition i : subPartitions){
+                if(i.getPartitionType() == PartitionType.Article || i.getPartitionType() == PartitionType.Chapter) builder.append(System.lineSeparator());
+                builder.append(i.toString());
+            }
+        }
+
         return builder.toString();
     }
 
     public void addText(String addition){
-        this.text += System.lineSeparator();
+        if(!text.equals("") || partitionType == PartitionType.Article) this.text += System.lineSeparator();
+        else this.text += " ";
         this.text += addition;
     }
 
     public void setPartitionName(String name){
-        if(this.partitionName != "") this.partitionName = name;
+        this.partitionName = name;
     }
 
     public PartitionType getPartitionType() {
@@ -61,7 +63,21 @@ public class TextPartition {
         return subPartitions.getLast();
     }
 
+    public TextPartition firstSubPartition() { return subPartitions.getFirst(); }
+
     public boolean isListEmpty(){
         return subPartitions.isEmpty();
+    }
+
+    public String getPartitionName(){
+        return partitionName;
+    }
+
+    public String getText(){
+        return text;
+    }
+
+    public LinkedList<TextPartition> getSubPartitions() {
+        return subPartitions;
     }
 }

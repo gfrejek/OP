@@ -24,7 +24,6 @@ public class Parser{
             }
         } catch(IOException ex){
             return null;
-            // todo Handling the exception
         }
         return result;
     }
