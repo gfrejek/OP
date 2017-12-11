@@ -16,9 +16,7 @@ public class TextPartition {
         if(type == PartitionType.Trash  ||
            type == PartitionType.Trash2 ||
            type == PartitionType.Text)
-                System.out.println("Something went horribly wrong");
-                //TODO Throw an exception
-
+                throw new IllegalArgumentException("Błąd przetwarzania pliku, stworzono obiekt klasy `TextPartition` z typem `Trash` lub `Text`");
     }
 
     public String toString(){

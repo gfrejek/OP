@@ -54,8 +54,8 @@ public class Parser{
         Scanner s1;
 
         while(!foundRightFile){
-            System.out.println("Specify file path to the right file (act or constitution)");
-            System.out.print("Path: ");
+            System.out.println("Określ ścieżkę do prawidłowego pliku (ustawy lub konstytucji)");
+            System.out.print("Ścieżka: ");
             s1 = new Scanner(System.in);
             newPath = s1.next();
 
@@ -72,7 +72,7 @@ public class Parser{
             }
         }
 
-        System.out.println("Statute type: " + tmpType.toString() + System.lineSeparator() + "File has been loaded successfully" + System.lineSeparator());
+        System.out.println("Typ dokumentu: " + tmpType.toString() + System.lineSeparator() + "Plik został załadowany pomyślnie" + System.lineSeparator());
     }
 
 
@@ -101,8 +101,8 @@ enum StatuteType {
 
     @Override
     public String toString() {
-        if(this == Act) return "an act";
-        if(this == Constitution) return "a constitution";
+        if(this == Act) return "ustawa";
+        if(this == Constitution) return "konstytucja";
         return null;
     }
 }

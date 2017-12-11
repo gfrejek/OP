@@ -53,6 +53,11 @@ public class TextCutter {
                         else {
                             currentNode.addText(nextLine);
                         }
+                    } else if(nextLine.substring(0,14).equals("W trosce o byt")){
+                        currentNode = new TextPartition(PartitionType.Section);
+                        currentNode.setPartitionName("Preambuła");
+                        currentNode.addText("\n" + nextLine);
+                        addPartition(currentNode);
                     }
                     break;
 
@@ -124,7 +129,7 @@ public class TextCutter {
             if((sample.substring(0,5).equals("DZIAŁ") && type == StatuteType.Act) || ((sample.length() > 7) && (type == StatuteType.Constitution) && (sample.substring(0,8).equals("Rozdział")))) return PartitionType.Section;
             if(sample.substring(0,4).equals("Art.")) return PartitionType.Article;
             if(sample.length() > 8 && type == StatuteType.Act && sample.substring(0,8).equals("Rozdział")) return PartitionType.Chapter;
-            if(type == StatuteType.Constitution && sample.toUpperCase().equals(sample)) return PartitionType.Chapter;
+            if(!cutFile.isEmpty() && type == StatuteType.Constitution && sample.toUpperCase().equals(sample)) return PartitionType.Chapter;
             if(Character.isDigit(sample.charAt(0))){
                 int i=1;
                 while(sample.length()>i && (Character.isDigit(sample.charAt(i)) || Character.isLetter(sample.charAt(i)))) i++;
