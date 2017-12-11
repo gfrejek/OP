@@ -1,11 +1,10 @@
 
 import java.util.LinkedList;
-import java.util.List;
 
 public class TextPartition {
     private PartitionType partitionType;
     private String partitionName;
-    private LinkedList<TextPartition> subPartitions = new LinkedList<TextPartition>();
+    private LinkedList<TextPartition> subPartitions = new LinkedList<>();
     private String text;
 
     public TextPartition(PartitionType type){

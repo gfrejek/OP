@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96a6f61d-74d2-415a-b8d6-d6d506a03aad" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OP/Parser.class" afterPath="$PROJECT_DIR$/out/production/OP/Parser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OP/StatuteReader.class" afterPath="$PROJECT_DIR$/out/production/OP/StatuteReader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OP/StatuteType.class" afterPath="$PROJECT_DIR$/out/production/OP/StatuteType.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OP/TextCutter.class" afterPath="$PROJECT_DIR$/out/production/OP/TextCutter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OP/TextPartition.class" afterPath="$PROJECT_DIR$/out/production/OP/TextPartition.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OP/TextViewer.class" afterPath="$PROJECT_DIR$/out/production/OP/TextViewer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Parser.java" afterPath="$PROJECT_DIR$/src/main/Parser.java" />
@@ -21,21 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="StatuteReader.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StatuteReader.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/StatuteReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="139" column="60" lean-forward="true" selection-start-line="139" selection-start-column="60" selection-end-line="139" selection-end-column="60" />
+            <state relative-caret-position="136">
+              <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TextViewer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TextViewer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/TextViewer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="163" column="0" lean-forward="true" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#TextViewer#0;class#TextViewer#0" expanded="false" />
@@ -57,10 +61,9 @@
       <file leaf-file-name="TextPartition.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/TextPartition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+            <state relative-caret-position="136">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#addText#0;class#TextPartition#0" expanded="false" />
               </folding>
             </state>
@@ -70,14 +73,14 @@
       <file leaf-file-name="TextCutter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/TextCutter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="46" column="67" lean-forward="true" selection-start-line="46" selection-start-column="67" selection-end-line="46" selection-end-column="67" />
+            <state relative-caret-position="-2644">
+              <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#assignType#0;class#TextCutter#0" expanded="false" />
-                <element signature="method#firstWord#0;class#TextCutter#0" expanded="false" />
-                <element signature="method#deletedFirstWord#0;class#TextCutter#0" expanded="false" />
-                <element signature="method#addPartition#0;class#TextCutter#0" expanded="false" />
+                <element signature="e#220#221#0" expanded="true" />
+                <element signature="e#249#250#0" expanded="true" />
+                <element signature="e#8986#8987#0" expanded="true" />
+                <element signature="e#9016#9017#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,6 +103,7 @@
       <find>Rozdział</find>
       <find>Article i mam Article</find>
       <find>new TextPartition</find>
+      <find>Art.</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -126,8 +130,8 @@
         <option value="$PROJECT_DIR$/src/main/Parser.java" />
         <option value="$PROJECT_DIR$/src/main/TextCutter.java" />
         <option value="$PROJECT_DIR$/src/main/TextPartition.java" />
-        <option value="$PROJECT_DIR$/src/main/StatuteReader.java" />
         <option value="$PROJECT_DIR$/src/main/TextViewer.java" />
+        <option value="$PROJECT_DIR$/src/main/StatuteReader.java" />
       </list>
     </option>
   </component>
@@ -236,6 +240,13 @@
               <item name="OP" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OP" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="Parser.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
@@ -481,7 +492,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3900325" sideWeight="0.17697228" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41386783" sideWeight="0.82302773" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29469123" sideWeight="0.82302773" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24918744" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -545,10 +556,10 @@
           <caret line="88" column="0" lean-forward="true" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#assignType#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#firstWord#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#deletedFirstWord#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#addPartition#0;class#TextCutter#0" expanded="false" />
+            <element signature="e#220#221#0" expanded="true" />
+            <element signature="e#249#250#0" expanded="true" />
+            <element signature="e#8986#8987#0" expanded="true" />
+            <element signature="e#9016#9017#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -597,7 +608,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#addText#0;class#TextPartition#0" expanded="false" />
           </folding>
         </state>
@@ -609,10 +619,10 @@
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#assignType#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#firstWord#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#deletedFirstWord#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#addPartition#0;class#TextCutter#0" expanded="false" />
+            <element signature="e#220#221#0" expanded="true" />
+            <element signature="e#249#250#0" expanded="true" />
+            <element signature="e#8986#8987#0" expanded="true" />
+            <element signature="e#9016#9017#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -682,7 +692,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#addText#0;class#TextPartition#0" expanded="false" />
           </folding>
         </state>
@@ -694,10 +703,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#assignType#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#firstWord#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#deletedFirstWord#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#addPartition#0;class#TextCutter#0" expanded="false" />
+            <element signature="e#220#221#0" expanded="true" />
+            <element signature="e#249#250#0" expanded="true" />
+            <element signature="e#8986#8987#0" expanded="true" />
+            <element signature="e#9016#9017#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -767,7 +776,6 @@
         <state relative-caret-position="85">
           <caret line="6" column="50" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#addText#0;class#TextPartition#0" expanded="false" />
           </folding>
         </state>
@@ -779,10 +787,10 @@
           <caret line="24" column="120" lean-forward="false" selection-start-line="24" selection-start-column="120" selection-end-line="24" selection-end-column="120" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#assignType#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#firstWord#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#deletedFirstWord#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#addPartition#0;class#TextCutter#0" expanded="false" />
+            <element signature="e#220#221#0" expanded="true" />
+            <element signature="e#249#250#0" expanded="true" />
+            <element signature="e#8986#8987#0" expanded="true" />
+            <element signature="e#9016#9017#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -847,7 +855,6 @@
         <state relative-caret-position="204">
           <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#addText#0;class#TextPartition#0" expanded="false" />
           </folding>
         </state>
@@ -1033,16 +1040,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="104" column="52" lean-forward="false" selection-start-line="104" selection-start-column="52" selection-end-line="104" selection-end-column="52" />
-          <folding>
-            <element signature="method#checkType#0;class#Parser#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/TextCutterTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
@@ -1064,43 +1061,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/TextPartition.java">
+    <entry file="file://$PROJECT_DIR$/src/main/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+        <state relative-caret-position="336">
+          <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#addText#0;class#TextPartition#0" expanded="false" />
+            <element signature="method#checkType#0;class#Parser#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/TextCutter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="46" column="67" lean-forward="true" selection-start-line="46" selection-start-column="67" selection-end-line="46" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#assignType#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#firstWord#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#deletedFirstWord#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#addPartition#0;class#TextCutter#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/StatuteReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="139" column="60" lean-forward="true" selection-start-line="139" selection-start-column="60" selection-end-line="139" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/TextViewer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="163" column="0" lean-forward="true" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#TextViewer#0;class#TextViewer#0" expanded="false" />
@@ -1115,6 +1089,38 @@
             <element signature="method#firstWord#0;class#TextViewer#0" expanded="false" />
             <element signature="method#deletedFirstWord#0;class#TextViewer#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/TextPartition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="method#addText#0;class#TextPartition#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/TextCutter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2644">
+          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#220#221#0" expanded="true" />
+            <element signature="e#249#250#0" expanded="true" />
+            <element signature="e#8986#8987#0" expanded="true" />
+            <element signature="e#9016#9017#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/StatuteReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,12 +1,11 @@
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 public class TextCutter {
     private StatuteType type;
 
-    private LinkedList<TextPartition> cutFile = new LinkedList<TextPartition>();
+    private LinkedList<TextPartition> cutFile = new LinkedList<>();
 
 
     public TextCutter(StatuteType t){
@@ -16,8 +15,8 @@ public class TextCutter {
 
     public void cutPackAdd(Scanner scanner){
 
-        String nextLine = "";
-        String tmp = "";
+        String nextLine;
+        String tmp;
         TextPartition currentNode = null;
 
         while(scanner.hasNextLine()){

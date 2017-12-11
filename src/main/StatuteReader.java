@@ -7,13 +7,6 @@ public class StatuteReader {
         boolean q = false;
         Parser parser = new Parser();
         parser.parse(arguments);
-/*
-        int skippedLines;
-        if(parser.getFileType() == StatuteType.Act) skippedLines = 2;
-        else skippedLines = 44;
-        for(int i = 0; i < skippedLines ; i++){
-            parser.getScanner().nextLine();
-        }*/
 
         TextCutter textCutter = new TextCutter(parser.getFileType());
 
@@ -24,7 +17,6 @@ public class StatuteReader {
             q = true;
         }
 
-
         TextViewer textViewer = new TextViewer(textCutter.getPartitionsList());
 
         System.out.println(textViewer.viewHelp(parser.getFileType()));
@@ -33,7 +25,7 @@ public class StatuteReader {
 
         while(!q){
             String lastLine;
-            String tmp = "";
+            String tmp;
             System.out.print("/");
             s1 = new Scanner(System.in);
             lastLine = s1.next();
@@ -141,10 +133,7 @@ public class StatuteReader {
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     break;
                 }
-
-
             }
         }
-
     }
 }

@@ -1,10 +1,9 @@
 import java.util.LinkedList;
 import java.util.Random;
-import java.util.Scanner;
 
 public class TextViewer {
     private LinkedList<TextPartition> partitionsList;
-    private LinkedList<TextPartition> articlesList = new LinkedList<TextPartition>();
+    private LinkedList<TextPartition> articlesList = new LinkedList<>();
 
     public TextViewer(LinkedList<TextPartition> newList){
         partitionsList = newList;
@@ -60,7 +59,7 @@ public class TextViewer {
 
     public String viewTableOfContent(){
         StringBuilder sb = new StringBuilder();
-        String tmp = "";
+        String tmp;
 
         for(TextPartition section : partitionsList){
             TextPartition tmpPartition = section;
@@ -113,7 +112,7 @@ public class TextViewer {
     }
 
     public String viewArticle(String articleNo){
-        String tmp = "";
+        String tmp;
 
         for(TextPartition art : articlesList){
             tmp = art.getPartitionName().toLowerCase();
@@ -132,7 +131,7 @@ public class TextViewer {
     }
 
     public String viewArticleRange(String articlesNo){
-        String tmp = "";
+        String tmp;
         StringBuilder sb = new StringBuilder();
         boolean inRange = false;
 
@@ -163,7 +162,7 @@ public class TextViewer {
     //public void viewChapterRange(String firstChapter, String lastChapter);
 
     public String viewSection(String sectionNo, StatuteType type){
-        String tmp = "";
+        String tmp;
         sectionNo = sectionNo.toLowerCase();
 
         for(TextPartition section : partitionsList){
@@ -200,9 +199,7 @@ public class TextViewer {
                     articlesList.add(subSection);
                 }
                 else{
-                    for(TextPartition article : subSection.getSubPartitions()){
-                        articlesList.add(article);
-                    }
+                    articlesList.addAll(subSection.getSubPartitions());
                 }
             }
         }
