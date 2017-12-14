@@ -120,7 +120,7 @@ public class TextCutter {
     }
 
 
-    public PartitionType assignType(String sample){    //TODO ZMIEN
+    private PartitionType assignType(String sample){
         if(sample.length() < 2) return PartitionType.Trash;
         if(sample.length() > 16 && sample.substring(1,17).equals("Kancelaria Sejmu")) return PartitionType.Trash2;
 

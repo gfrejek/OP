@@ -81,13 +81,12 @@ public class StatuteReader {
                         if(parser.getFileType() == StatuteType.Constitution) throw new IllegalArgumentException("W konstytucji w podpunktach nie występują litery");
                         if(contentMode) System.out.println(textViewer.viewLetter(arguments[3]));
                         else throw new IllegalArgumentException("Niemożliwe jest wyświetlenie spisu treści litery");
+                        break;
                     }
-
+                    default:{
+                        throw new IllegalArgumentException("Niepoprawny argument treści, jaką chce się wyświetlić");
+                    }
                 }
-
-
-
-
             } else {
                 System.out.println(textViewer.viewHelp());
             }
