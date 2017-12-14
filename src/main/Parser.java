@@ -37,42 +37,22 @@ public class Parser{
         boolean foundRightFile = false;
         Scanner tmpScanner;
         StatuteType tmpType = null;
+        if(arguments.length == 0) throw new IllegalArgumentException("Nie podano żadnych argumentów");
+        String path = arguments[0].replace("\"", "");
 
-        for(String tmpPath : arguments){
-            tmpScanner = openFile(tmpPath);
-            if(tmpScanner != null){
-                tmpType = checkType(tmpScanner);
-                if(tmpType != null){
-                    foundRightFile = true;
-                    fileType = tmpType;
-                    scanner = tmpScanner;
-                    break;
-                }
-            }
-        }
-        String newPath;
-        Scanner s1;
-
-        while(!foundRightFile){
-            System.out.println("Określ ścieżkę do prawidłowego pliku (ustawy lub konstytucji)");
-            System.out.print("Ścieżka: ");
-            s1 = new Scanner(System.in);
-            newPath = s1.next();
-
-
-            tmpScanner = openFile(newPath);
-            if(tmpScanner != null){
-                tmpType = checkType(tmpScanner);
-                if(tmpType != null){
-                    foundRightFile = true;
-                    fileType = tmpType;
-                    scanner = tmpScanner;
-                    break;
-                }
+        tmpScanner = openFile(path);
+        if(tmpScanner != null){
+            tmpType = checkType(tmpScanner);
+            if(tmpType != null){
+                foundRightFile = true;
+                fileType = tmpType;
+                scanner = tmpScanner;
             }
         }
 
-        System.out.println("Typ dokumentu: " + tmpType.toString() + System.lineSeparator() + "Plik został załadowany pomyślnie" + System.lineSeparator());
+        if(!foundRightFile){
+            throw new IllegalArgumentException("Określ ścieżkę do prawidłowego pliku (ustawy lub konstytucji)");
+        }
     }
 
 

@@ -120,7 +120,7 @@ public class TextCutter {
     }
 
 
-    private PartitionType assignType(String sample){
+    public PartitionType assignType(String sample){    //TODO ZMIEN
         if(sample.length() < 2) return PartitionType.Trash;
         if(sample.length() > 16 && sample.substring(1,17).equals("Kancelaria Sejmu")) return PartitionType.Trash2;
 
@@ -187,16 +187,16 @@ public class TextCutter {
 
             case Paragraph:
                 tmp = cutFile.getLast();                                // tmp = latest Section
-                if(!tmp.isListEmpty()) tmp = tmp.lastSubPartition();    // tmp = latest Chapter of latest Section
-                if(!tmp.isListEmpty()) tmp = tmp.lastSubPartition();    // tmp = latest Article of latest Chapter...
+                if(!tmp.isListEmpty() && tmp.lastSubPartition().getPartitionType() == PartitionType.Chapter) tmp = tmp.lastSubPartition();    // tmp = latest Chapter of latest Section
+                if(!tmp.isListEmpty() && tmp.lastSubPartition().getPartitionType() == PartitionType.Article) tmp = tmp.lastSubPartition();    // tmp = latest Article of latest Chapter...
                 tmp.addSubPartition(addition);                          // We add newest Paragraph to the latest Article
                 break;
 
             case Point:
                 tmp = cutFile.getLast();                                // Section
-                if(!tmp.isListEmpty()) tmp = tmp.lastSubPartition();    // Chapter
-                if(!tmp.isListEmpty()) tmp = tmp.lastSubPartition();    // Article
-                if(!tmp.isListEmpty()) tmp = tmp.lastSubPartition();    // Paragraph
+                if(!tmp.isListEmpty() && tmp.lastSubPartition().getPartitionType() == PartitionType.Chapter) tmp = tmp.lastSubPartition();    // Chapter
+                if(!tmp.isListEmpty() && tmp.lastSubPartition().getPartitionType() == PartitionType.Article) tmp = tmp.lastSubPartition();    // Article
+                if(!tmp.isListEmpty() && tmp.lastSubPartition().getPartitionType() == PartitionType.Paragraph) tmp = tmp.lastSubPartition();    // Paragraph
                 tmp.addSubPartition(addition);                          // add Point
                 break;
 
@@ -210,6 +210,7 @@ public class TextCutter {
                 break;
         }
     }
+
 
     public LinkedList<TextPartition> getPartitionsList(){
         return cutFile;

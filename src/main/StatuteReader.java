@@ -4,9 +4,15 @@ import java.util.Scanner;
 public class StatuteReader {
 
     public static void main(String[] arguments){
-        boolean q = false;
+        boolean canStart = true;
         Parser parser = new Parser();
-        parser.parse(arguments);
+
+        try{
+            parser.parse(arguments);
+        } catch(IllegalArgumentException ex){
+            System.out.println(ex.toString());
+            canStart = false;
+        }
 
         TextCutter textCutter = new TextCutter(parser.getFileType());
 
@@ -14,126 +20,83 @@ public class StatuteReader {
             textCutter.cutPackAdd(parser.getScanner());
         }catch(IllegalArgumentException ex){
             System.out.println(ex.toString());
-            q = true;
+            canStart = false;
         }
 
         TextViewer textViewer = new TextViewer(textCutter.getPartitionsList());
 
-        System.out.println(textViewer.viewHelp(parser.getFileType()));
-
         Scanner s1;
+        boolean contentMode;
 
-        while(!q){
-            String lastLine;
-            String tmp;
-            System.out.print("/");
-            s1 = new Scanner(System.in);
-            lastLine = s1.next();
-            lastLine = lastLine.toLowerCase();
+        try{
+            if(canStart){
+                if(arguments.length < 3) throw new IllegalArgumentException("Za mało argumentów" + textViewer.viewHelp());
+                String mode = arguments[1].replace("\"", "");
 
-            System.out.println();
+                if(mode.equals("-s") || mode.equals("-spis") || mode.equals("spis") || mode.equals("s")) contentMode = false;
+                else if(mode.equals("-t") || mode.equals("-tresc") || mode.equals("t") || mode.equals("-treść") || mode.equals("treść") || mode.equals("tresc")) contentMode = true;
+                else throw new IllegalArgumentException("Niepoprawny argument trybu działania");
 
-            switch(lastLine.toLowerCase()){
-                case "q": case "quit":{
-                    q = true;
-                    break;
-                }
 
-                case "h": case "help":{
-                    System.out.println(textViewer.viewHelp(parser.getFileType()));
-                    break;
-                }
-
-                case "w": case "whole": case "whole text":{
-                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    System.out.print(textViewer.viewWhole());
-                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    break;
-                }
-
-                case "t": case "table": case "table of content": case "content":{
-                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    System.out.print(textViewer.viewTableOfContent());
-                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    break;
-                }
-
-                case "a": case "art": case "art.": case "artykuł":{
-                    boolean isSingle = false;
-
-                    while(true){
-                        System.out.println("Wyświetlić `pojedynczy` artykuł czy `zakres` artykułów?\n");
-                        System.out.print("/artykuł/");
-                        s1 = new Scanner(System.in);
-                        tmp = s1.nextLine();
-                        tmp = tmp.toLowerCase();
-                        if(tmp.equals("zakres") || tmp.equals("pojedynczy")) break;
+                switch(arguments[2].replace("\"", "")){
+                    case "-a": case "-art": case "-artykul": case "-artykuł": case "a": case "art": case "artykul": case "artykuł":{
+                        if(arguments.length < 4) throw new IllegalArgumentException("Za mało argumentów");
+                        if(contentMode) System.out.println(textViewer.viewArticle(arguments[3]));
+                        else throw new IllegalArgumentException("Niemożliwe jest wyświetlenie spisu treści artykułu");
+                        break;
+                    }
+                    case "-w": case "-calosc": case "-całość": case "w": case "calosc": case "całość":{
+                        if(contentMode) System.out.println(textViewer.viewWhole());
+                        else System.out.println(textViewer.viewTableOfContent());
+                        break;
+                    }
+                    case "-r": case "-rozdzial": case "-rozdział": case "r": case "rozdzial": case "rozdział":{
+                        if(arguments.length < 4) throw new IllegalArgumentException("Za mało argumentów");
+                        if(contentMode && parser.getFileType() == StatuteType.Constitution) System.out.println(textViewer.viewSection(arguments[3], StatuteType.Constitution));
+                        else if(contentMode) System.out.println(textViewer.viewActChapter(arguments[3]));
+                        else if(parser.getFileType() == StatuteType.Constitution) System.out.println(textViewer.viewSectionTOC(arguments[3]));
+                        else System.out.println(textViewer.viewActChapterTOC(arguments[3]));
+                        break;
+                    }
+                    case "-artykuły": case "-artykuly": case "-zakres": case "artykuly": case "zakres": case "artykuły":{
+                        if(arguments.length < 4) throw new IllegalArgumentException("Za mało argumentów");
+                        if(contentMode) System.out.print(textViewer.viewArticleRange(arguments[3]));
+                        else throw new IllegalArgumentException("Niemożliwe jest wyświetlenie spisu treści zakresu artykułów");
+                        break;
+                    }
+                    case "-ustęp": case "-ustep": case "-u": case "u": case "ustęp": case "ustep":{
+                        if(arguments.length < 4) throw new IllegalArgumentException("Za mało argumentów");
+                        if(contentMode) System.out.print(textViewer.viewParagraph(arguments[3]));
+                        else throw new IllegalArgumentException("Niemożliwe jest wyświetlenie spisu treści ustępu");
+                        break;
+                    }
+                    case "-p": case "-punkt": case "p": case "punkt":{
+                        if(arguments.length < 4) throw new IllegalArgumentException("Za mało argumentów");
+                        if(contentMode) System.out.print(textViewer.viewPoint(arguments[3]));
+                        else throw new IllegalArgumentException("Niemożliwe jest wyświetlenie spisu treści punktu");
+                        break;
+                    }
+                    case "-l": case "-litera": case "litera": case "l":{
+                        if(arguments.length < 4) throw new IllegalArgumentException("Za mało argumentów");
+                        if(parser.getFileType() == StatuteType.Constitution) throw new IllegalArgumentException("W konstytucji w podpunktach nie występują litery");
+                        if(contentMode) System.out.println(textViewer.viewLetter(arguments[3]));
+                        else throw new IllegalArgumentException("Niemożliwe jest wyświetlenie spisu treści litery");
                     }
 
-                    if(tmp.equals("pojedynczy")) isSingle = true;
-
-                    while(true){
-                        if(isSingle) {
-                            System.out.println("\nWprowadź numer artykułu\n" + "lub napisz `e` żeby wrócić\n");
-                            System.out.print("/artykuł/pojedynczy/");
-                        }
-                        else {
-                            System.out.println("\nWprowadź numer pierwszego i ostatniego artykułu, które mają się znaleźć w zakresie, oddzielając te numery spacją\n" + "lub napisz `e` żeby wrócić\n");
-                            System.out.print("/artykuł/zakres/");
-                        }
-                        s1 = new Scanner(System.in);
-                        tmp = s1.nextLine();
-                        tmp = tmp.toLowerCase();
-                        if(tmp.equals("exit") ||
-                                tmp.equals("e")    ||
-                                tmp.equals("q")    ||
-                                tmp.equals("quit")) break;
-                        System.out.println();
-                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        if(isSingle) System.out.print(textViewer.viewArticle(tmp));
-                        else System.out.print(textViewer.viewArticleRange(tmp));
-                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    }
-                    break;
                 }
 
-                case "s": case "dział":{
-                    while(true){
-                        if(parser.getFileType() == StatuteType.Constitution) {
-                            System.out.println("Wprowadź numer rozdziału\n" + "lub napisz `e` żeby wrócić\n");
-                            System.out.print("/rozdział/");
-                        }
-                        else {
-                            System.out.println("Wprowadź numer działu\n" + "lub napisz `e` żeby wrócić\n");
-                            System.out.print("/dział/");
-                        }
 
-                        s1 = new Scanner(System.in);
-                        tmp = s1.nextLine();
-                        tmp = tmp.toLowerCase();
-                        if(tmp.equals("exit") || tmp.equals("e") || tmp.equals("q") || tmp.equals("quit")) break;
-                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        System.out.print(textViewer.viewSection(tmp, parser.getFileType()));
-                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    }
 
-                    break;
-                }
-                case "p": case "preambuła":{
-                    if(parser.getFileType() == StatuteType.Constitution) {
-                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                        System.out.print(textViewer.viewPreAmbule());
-                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    }
-                    break;
-                }
-                case "r": case "losowy":{
-                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    System.out.print(textViewer.viewRandomArticle());
-                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    break;
-                }
+
+            } else {
+                System.out.println(textViewer.viewHelp());
             }
+        }catch(IllegalArgumentException ex){
+            System.out.println(ex.toString());
+            textViewer.viewHelp();
         }
+
+
+
     }
 }
