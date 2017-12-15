@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96a6f61d-74d2-415a-b8d6-d6d506a03aad" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/OP/TextViewer.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/OP/TextCutter.class" afterPath="$PROJECT_DIR$/out/production/OP/TextCutter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/TextCutter.java" afterPath="$PROJECT_DIR$/src/main/TextCutter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/TextViewer.java" afterPath="$PROJECT_DIR$/src/main/TextViewer.java" />
@@ -19,8 +21,8 @@
       <file leaf-file-name="StatuteReader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/StatuteReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="71" column="40" lean-forward="false" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+            <state relative-caret-position="-77">
+              <caret line="74" column="15" lean-forward="true" selection-start-line="74" selection-start-column="15" selection-end-line="74" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -29,26 +31,24 @@
       <file leaf-file-name="TextViewer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/TextViewer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="264" column="25" lean-forward="false" selection-start-line="264" selection-start-column="25" selection-end-line="264" selection-end-column="25" />
+            <state relative-caret-position="222">
+              <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
               <folding>
                 <element signature="method#TextViewer#0;class#TextViewer#0" expanded="false" />
                 <element signature="method#viewHelp#0;class#TextViewer#0" expanded="false" />
                 <element signature="method#viewWhole#0;class#TextViewer#0" expanded="false" />
                 <element signature="method#viewTableOfContent#0;class#TextViewer#0" expanded="false" />
-                <element signature="method#viewArticle#0;class#TextViewer#0" expanded="false" />
                 <element signature="method#viewArticleRange#0;class#TextViewer#0" expanded="false" />
                 <element signature="method#viewActChapter#0;class#TextViewer#0" expanded="false" />
                 <element signature="method#viewSection#0;class#TextViewer#0" expanded="false" />
                 <element signature="method#viewSectionTOC#0;class#TextViewer#0" expanded="false" />
-                <element signature="e#13240#13241#0" expanded="true" />
-                <element signature="e#13299#13300#0" expanded="true" />
+                <element signature="e#13265#13266#0" expanded="true" />
+                <element signature="e#13324#13325#0" expanded="true" />
+                <element signature="method#viewParagraph#0;class#TextViewer#0" expanded="false" />
                 <element signature="method#viewPoint#0;class#TextViewer#0" expanded="false" />
                 <element signature="method#viewLetter#0;class#TextViewer#0" expanded="false" />
                 <element signature="method#viewActChapterTOC#0;class#TextViewer#0" expanded="false" />
                 <element signature="method#addArticlesToList#0;class#TextViewer#0" expanded="false" />
-                <element signature="method#firstWord#0;class#TextViewer#0" expanded="false" />
-                <element signature="method#deletedFirstWord#0;class#TextViewer#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -57,14 +57,13 @@
       <file leaf-file-name="TextCutter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/TextCutter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="88" column="42" lean-forward="false" selection-start-line="88" selection-start-column="42" selection-end-line="88" selection-end-column="42" />
+            <state relative-caret-position="671">
+              <caret line="215" column="51" lean-forward="true" selection-start-line="215" selection-start-column="51" selection-end-line="215" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#assignType#0;class#TextCutter#0" expanded="false" />
                 <element signature="method#firstWord#0;class#TextCutter#0" expanded="false" />
                 <element signature="method#deletedFirstWord#0;class#TextCutter#0" expanded="false" />
-                <element signature="method#addPartition#0;class#TextCutter#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -117,8 +116,8 @@
         <option value="$PROJECT_DIR$/src/main/Parser.java" />
         <option value="$PROJECT_DIR$/src/main/TextPartition.java" />
         <option value="$PROJECT_DIR$/src/test/TextCutterTest.java" />
-        <option value="$PROJECT_DIR$/src/main/StatuteReader.java" />
         <option value="$PROJECT_DIR$/src/main/TextCutter.java" />
+        <option value="$PROJECT_DIR$/src/main/StatuteReader.java" />
         <option value="$PROJECT_DIR$/src/main/TextViewer.java" />
       </list>
     </option>
@@ -276,7 +275,7 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="StatuteReader" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="654" />
+      <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -586,19 +585,17 @@
             <element signature="method#viewHelp#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewWhole#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewTableOfContent#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#viewArticle#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewArticleRange#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSection#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSectionTOC#0;class#TextViewer#0" expanded="false" />
-            <element signature="e#13240#13241#0" expanded="true" />
-            <element signature="e#13299#13300#0" expanded="true" />
+            <element signature="e#13265#13266#0" expanded="true" />
+            <element signature="e#13324#13325#0" expanded="true" />
+            <element signature="method#viewParagraph#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewPoint#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewLetter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapterTOC#0;class#TextViewer#0" expanded="false" />
             <element signature="method#addArticlesToList#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#firstWord#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#deletedFirstWord#0;class#TextViewer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -680,19 +677,17 @@
             <element signature="method#viewHelp#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewWhole#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewTableOfContent#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#viewArticle#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewArticleRange#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSection#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSectionTOC#0;class#TextViewer#0" expanded="false" />
-            <element signature="e#13240#13241#0" expanded="true" />
-            <element signature="e#13299#13300#0" expanded="true" />
+            <element signature="e#13265#13266#0" expanded="true" />
+            <element signature="e#13324#13325#0" expanded="true" />
+            <element signature="method#viewParagraph#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewPoint#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewLetter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapterTOC#0;class#TextViewer#0" expanded="false" />
             <element signature="method#addArticlesToList#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#firstWord#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#deletedFirstWord#0;class#TextViewer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -774,19 +769,17 @@
             <element signature="method#viewHelp#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewWhole#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewTableOfContent#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#viewArticle#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewArticleRange#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSection#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSectionTOC#0;class#TextViewer#0" expanded="false" />
-            <element signature="e#13240#13241#0" expanded="true" />
-            <element signature="e#13299#13300#0" expanded="true" />
+            <element signature="e#13265#13266#0" expanded="true" />
+            <element signature="e#13324#13325#0" expanded="true" />
+            <element signature="method#viewParagraph#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewPoint#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewLetter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapterTOC#0;class#TextViewer#0" expanded="false" />
             <element signature="method#addArticlesToList#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#firstWord#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#deletedFirstWord#0;class#TextViewer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -856,19 +849,17 @@
             <element signature="method#viewHelp#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewWhole#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewTableOfContent#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#viewArticle#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewArticleRange#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSection#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSectionTOC#0;class#TextViewer#0" expanded="false" />
-            <element signature="e#13240#13241#0" expanded="true" />
-            <element signature="e#13299#13300#0" expanded="true" />
+            <element signature="e#13265#13266#0" expanded="true" />
+            <element signature="e#13324#13325#0" expanded="true" />
+            <element signature="method#viewParagraph#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewPoint#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewLetter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapterTOC#0;class#TextViewer#0" expanded="false" />
             <element signature="method#addArticlesToList#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#firstWord#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#deletedFirstWord#0;class#TextViewer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -923,19 +914,17 @@
             <element signature="method#viewHelp#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewWhole#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewTableOfContent#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#viewArticle#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewArticleRange#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSection#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSectionTOC#0;class#TextViewer#0" expanded="false" />
-            <element signature="e#13240#13241#0" expanded="true" />
-            <element signature="e#13299#13300#0" expanded="true" />
+            <element signature="e#13265#13266#0" expanded="true" />
+            <element signature="e#13324#13325#0" expanded="true" />
+            <element signature="method#viewParagraph#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewPoint#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewLetter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapterTOC#0;class#TextViewer#0" expanded="false" />
             <element signature="method#addArticlesToList#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#firstWord#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#deletedFirstWord#0;class#TextViewer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -970,19 +959,17 @@
             <element signature="method#viewHelp#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewWhole#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewTableOfContent#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#viewArticle#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewArticleRange#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSection#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSectionTOC#0;class#TextViewer#0" expanded="false" />
-            <element signature="e#13240#13241#0" expanded="true" />
-            <element signature="e#13299#13300#0" expanded="true" />
+            <element signature="e#13265#13266#0" expanded="true" />
+            <element signature="e#13324#13325#0" expanded="true" />
+            <element signature="method#viewParagraph#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewPoint#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewLetter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapterTOC#0;class#TextViewer#0" expanded="false" />
             <element signature="method#addArticlesToList#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#firstWord#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#deletedFirstWord#0;class#TextViewer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1017,19 +1004,17 @@
             <element signature="method#viewHelp#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewWhole#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewTableOfContent#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#viewArticle#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewArticleRange#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSection#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSectionTOC#0;class#TextViewer#0" expanded="false" />
-            <element signature="e#13240#13241#0" expanded="true" />
-            <element signature="e#13299#13300#0" expanded="true" />
+            <element signature="e#13265#13266#0" expanded="true" />
+            <element signature="e#13324#13325#0" expanded="true" />
+            <element signature="method#viewParagraph#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewPoint#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewLetter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapterTOC#0;class#TextViewer#0" expanded="false" />
             <element signature="method#addArticlesToList#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#firstWord#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#deletedFirstWord#0;class#TextViewer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1151,50 +1136,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/StatuteReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="71" column="40" lean-forward="false" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/TextCutter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="88" column="42" lean-forward="false" selection-start-line="88" selection-start-column="42" selection-end-line="88" selection-end-column="42" />
+        <state relative-caret-position="671">
+          <caret line="215" column="51" lean-forward="true" selection-start-line="215" selection-start-column="51" selection-end-line="215" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#assignType#0;class#TextCutter#0" expanded="false" />
             <element signature="method#firstWord#0;class#TextCutter#0" expanded="false" />
             <element signature="method#deletedFirstWord#0;class#TextCutter#0" expanded="false" />
-            <element signature="method#addPartition#0;class#TextCutter#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/StatuteReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-77">
+          <caret line="74" column="15" lean-forward="true" selection-start-line="74" selection-start-column="15" selection-end-line="74" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/TextViewer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="264" column="25" lean-forward="false" selection-start-line="264" selection-start-column="25" selection-end-line="264" selection-end-column="25" />
+        <state relative-caret-position="222">
+          <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding>
             <element signature="method#TextViewer#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewHelp#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewWhole#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewTableOfContent#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#viewArticle#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewArticleRange#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSection#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewSectionTOC#0;class#TextViewer#0" expanded="false" />
-            <element signature="e#13240#13241#0" expanded="true" />
-            <element signature="e#13299#13300#0" expanded="true" />
+            <element signature="e#13265#13266#0" expanded="true" />
+            <element signature="e#13324#13325#0" expanded="true" />
+            <element signature="method#viewParagraph#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewPoint#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewLetter#0;class#TextViewer#0" expanded="false" />
             <element signature="method#viewActChapterTOC#0;class#TextViewer#0" expanded="false" />
             <element signature="method#addArticlesToList#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#firstWord#0;class#TextViewer#0" expanded="false" />
-            <element signature="method#deletedFirstWord#0;class#TextViewer#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -212,10 +212,10 @@ public class TextCutter {
 
             case Subpoint:
                 tmp = cutFile.getLast();                                // Section
-                if(!tmp.isListEmpty()) tmp = tmp.lastSubPartition();    // Chapter
-                if(!tmp.isListEmpty()) tmp = tmp.lastSubPartition();    // Article
-                if(!tmp.isListEmpty()) tmp = tmp.lastSubPartition();    // Paragraph
-                if(!tmp.isListEmpty()) tmp = tmp.lastSubPartition();    // Point
+                if(!tmp.isListEmpty() && tmp.lastSubPartition().getPartitionType() == PartitionType.Chapter) tmp = tmp.lastSubPartition();    // Chapter
+                if(!tmp.isListEmpty() && tmp.lastSubPartition().getPartitionType() == PartitionType.Article) tmp = tmp.lastSubPartition();    // Article
+                if(!tmp.isListEmpty() && tmp.lastSubPartition().getPartitionType() == PartitionType.Paragraph) tmp = tmp.lastSubPartition();    // Paragraph
+                if(!tmp.isListEmpty() && tmp.lastSubPartition().getPartitionType() == PartitionType.Point) tmp = tmp.lastSubPartition();    // Point
                 tmp.addSubPartition(addition);                          // add SubPoint
                 break;
         }

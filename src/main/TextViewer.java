@@ -103,8 +103,7 @@ public class TextViewer {
                articleNo.equals(tmp.substring(5,tmp.length()-1)))
                 return art.toString();
         }
-        return "Artykuł o numerze " + articleNo + " nie został znaleziony.\n";
-
+        throw new IllegalArgumentException("Artkuł o numerze " + articleNo + " nie został znaleziony.");
     }
 
     public String viewArticleRange(String articlesNo){
@@ -275,8 +274,8 @@ public class TextViewer {
         TextPartition searchedArticle = null;
         TextPartition searchedParagraph = null;
 
-        if(deletedFirstWord(deletedFirstWord(pointPath)).equals("")){
-            tmp = "Aby wyświetlić punkt, musisz podać zarówno numer artykułu, ustępu, jak i punktu";
+        if((deletedFirstWord(pointPath)).equals("")){
+            tmp = "Aby wyświetlić punkt, musisz podać zarówno numer artykułu, (ustępu,) jak i punktu";
             throw new IllegalArgumentException(tmp);
         }
 
@@ -293,6 +292,9 @@ public class TextViewer {
             if(paragraph.getPartitionName().replace(".", "").equals(firstWord(deletedFirstWord(pointPath).replace(".", "")))){
                 searchedParagraph = paragraph;
                 break;
+            }
+            if(paragraph.getPartitionType() == PartitionType.Point && paragraph.getPartitionName().replace(")", "").equals(firstWord(deletedFirstWord(pointPath).replace(".", "")))){
+                return paragraph.toString();
             }
         }
 
@@ -315,13 +317,22 @@ public class TextViewer {
         TextPartition searchedParagraph = null;
         TextPartition searchedPoint = null;
 
-        if(deletedFirstWord(deletedFirstWord(deletedFirstWord(letterPath))).equals("")){
-            tmp = "Aby wyświetlić literę, musisz podać zarówno numer punktu, artykułu, ustępu, jak i samego punktu";
+        if(deletedFirstWord(deletedFirstWord(letterPath)).equals("")){
+            tmp = "Aby wyświetlić literę, musisz podać zarówno numer artykułu, (ustępu,) punktu jak i samej litery";
             throw new IllegalArgumentException(tmp);
         }
 
+        String artName = firstWord(letterPath).replace(".", "");
+        String paraName = firstWord(deletedFirstWord(letterPath)).replace(".", "");
+        String pointName = firstWord(deletedFirstWord(deletedFirstWord(letterPath))).replace(")", "");
+        String letterName = firstWord(deletedFirstWord(deletedFirstWord(deletedFirstWord(letterPath)))).replace(")", "");
+
+        if(deletedFirstWord(deletedFirstWord(deletedFirstWord(letterPath))).equals("")){
+            letterName = firstWord(deletedFirstWord(deletedFirstWord(letterPath))).replace(")", "");
+        }
+
         for(TextPartition article : articlesList){
-            if(deletedFirstWord(article.getPartitionName()).replace(".", "").equals(firstWord(letterPath).replace(".", ""))){
+            if(deletedFirstWord(article.getPartitionName()).replace(".", "").equals(artName)){
                 searchedArticle = article;
                 break;
             }
@@ -330,25 +341,31 @@ public class TextViewer {
         if(searchedArticle == null) throw new IllegalArgumentException("Nie znaleziono artykułu z numerem " + firstWord(letterPath));
 
         for(TextPartition paragraph : searchedArticle.getSubPartitions()){
-            if(paragraph.getPartitionName().replace(".", "").equals(firstWord(deletedFirstWord(letterPath).replace(".", "")))){
+            if(paragraph.getPartitionName().replace(".", "").equals(paraName)){
                 searchedParagraph = paragraph;
+                break;
+            }
+            if(paragraph.getPartitionType() == PartitionType.Point && paragraph.getPartitionName().replace(")", "").equals(firstWord(deletedFirstWord(letterPath).replace(".", "")))){
+                searchedPoint = paragraph;
                 break;
             }
         }
 
-        if(searchedParagraph == null) throw new IllegalArgumentException("Nie znaleziono ustępu " + firstWord(deletedFirstWord(letterPath)) + " w artykule o numerze " + firstWord(letterPath));
+        if(searchedParagraph == null && searchedPoint == null) throw new IllegalArgumentException("Nie znaleziono ustępu " + firstWord(deletedFirstWord(letterPath)) + " w artykule o numerze " + firstWord(letterPath));
 
-        for(TextPartition point : searchedParagraph.getSubPartitions()){
-            if(point.getPartitionName().replace(")", "").equals(firstWord(deletedFirstWord(deletedFirstWord(letterPath).replace(")", ""))))){
-                searchedPoint = point;
-                break;
+        if(searchedPoint == null){
+            for(TextPartition point : searchedParagraph.getSubPartitions()){
+                if(point.getPartitionName().replace(")", "").equals(firstWord(deletedFirstWord(deletedFirstWord(letterPath).replace(")", ""))))){
+                    searchedPoint = point;
+                    break;
+                }
             }
         }
 
         if(searchedPoint == null) throw new IllegalArgumentException("Nie znaleziono punktu " + firstWord(deletedFirstWord(deletedFirstWord(letterPath))) + " w ustępie " + firstWord(deletedFirstWord(letterPath)) + " w artykule o numerze " + firstWord(letterPath));
 
         for(TextPartition letter : searchedPoint.getSubPartitions()){
-            if(letter.getPartitionName().replace(")", "").equals(deletedFirstWord(deletedFirstWord(deletedFirstWord(letterPath).replace(")", ""))))){
+            if(letter.getPartitionName().replace(")", "").equals(letterName)){
                 return letter.toString();
             }
         }
@@ -414,9 +431,11 @@ public class TextViewer {
     private String firstWord(String k){
         String tmp = "";
         int i = 0;
+
         while(!k.equals("") && k.charAt(0) == ' ') k = k.substring(1,k.length());
 
-        while(k.length()>i && k.charAt(i)!=' ' && !k.substring(i+1,i+2).equals("\n")){
+        while(k.length()>i && k.charAt(i)!=' '){
+            if(k.length()>i+2 && k.substring(i+1, i+2).equals("\n")) break;
             tmp += k.charAt(i);
             i++;
         }
@@ -427,12 +446,13 @@ public class TextViewer {
     private String deletedFirstWord(String k){
         int i = 0;
 
+
         while(k.length() > i && k.charAt(i)!=' '){
+            if(k.length()>i+1 && k.substring(i+1, i+2).equals("\n")) break;
             i++;
         }
 
         if(i == k.length()) return "";
         return k.substring(i+1,k.length());
     }
-
 }
