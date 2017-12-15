@@ -5,6 +5,8 @@ public class TextViewer {
     private LinkedList<TextPartition> partitionsList;
     private LinkedList<TextPartition> articlesList = new LinkedList<>();
 
+    // Everything is self-explanatory
+
     public TextViewer(LinkedList<TextPartition> newList){
         partitionsList = newList;
         addArticlesToList();

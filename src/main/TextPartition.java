@@ -18,6 +18,7 @@ public class TextPartition {
                 throw new IllegalArgumentException("Błąd przetwarzania pliku, stworzono obiekt klasy `TextPartition` z typem `Trash` lub `Text`");
     }
 
+    // Returns string which contains this.name, this.text and recursively adds name and text of every subPartition
     public String toString(){
 
         StringBuilder builder = new StringBuilder();
@@ -38,6 +39,7 @@ public class TextPartition {
         return builder.toString();
     }
 
+    // Adds new line of text to this.text
     public void addText(String addition){
         if(!text.equals("") || partitionType == PartitionType.Article) this.text += System.lineSeparator();
         else this.text += " ";
@@ -52,6 +54,7 @@ public class TextPartition {
         return partitionType;
     }
 
+    // Adds given TextPartition to subPartition LinkedList
     public void addSubPartition(TextPartition addition){
         subPartitions.add(addition);
     }

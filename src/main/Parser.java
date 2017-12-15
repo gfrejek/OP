@@ -8,10 +8,8 @@ public class Parser{
     private StatuteType fileType;
 
 
-    //-----------------------------------------------------------------\\
-    // openFile returns null if file with given path cannot be opened  \\
-    // openFile returns Scanner if file exists and can be opened       \\
-    //-----------------------------------------------------------------\\
+    // openFile returns null if file with given path cannot be opened
+    // openFile returns Scanner if file exists and can be opened
     private Scanner openFile(String path){
         Scanner result = null;
         FileInputStream inputStream = null;
@@ -29,10 +27,8 @@ public class Parser{
     }
 
 
-    //-------------------------------------------------------------------------------------\\
-    // Constructor checks whether or not one of the arguments is path to the desired file  \\
-    // and assigns this path to 'filePath' and assigns Scanner to 'scanner' variable       \\
-    //-------------------------------------------------------------------------------------\\
+    // Constructor checks whether or not one of the arguments is path to the desired file
+    // and assigns this path to 'filePath' and assigns Scanner to 'scanner' variable
     public void parse(String[] arguments){
         boolean foundRightFile = false;
         Scanner tmpScanner;
@@ -56,10 +52,8 @@ public class Parser{
     }
 
 
-    //--------------------------------------------------------------------\\
-    // checkType returns the type of the file with 'file' handle variable \\
-    // checkType returns null if it is not the desirable file             \\
-    //--------------------------------------------------------------------\\
+    // checkType returns the type of the file with 'file' handle variable
+    // checkType returns null if it is not the desirable file
     private StatuteType checkType(Scanner file){
         for(int i = 0; (i < 50) && (file.hasNextLine()); i++){
             String readLine = file.nextLine();

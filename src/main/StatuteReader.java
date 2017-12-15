@@ -97,8 +97,5 @@ public class StatuteReader {
             System.out.println(ex.toString());
             System.out.println(textViewer.viewHelp());
         }
-
-
-
     }
 }

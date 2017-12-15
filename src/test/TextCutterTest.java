@@ -10,7 +10,6 @@ public class TextCutterTest{
     private StatuteType type;
     @Test
 
-
     public void test(){
 
         type = StatuteType.Constitution;
@@ -27,8 +26,6 @@ public class TextCutterTest{
         assertEquals(assignType("5sdffsdfds"), PartitionType.Trash);
         assertEquals(assignType("@Kancelaria Sejmu"), PartitionType.Trash2);
         assertEquals(assignType("K"), PartitionType.Trash);
-
-
 
         type = StatuteType.Act;
 
@@ -52,25 +49,12 @@ public class TextCutterTest{
         assertEquals(firstWord("Art. 1."), "Art.");
         assertEquals(firstWord("1."), "1.");
 
-
-
         assertEquals(deletedFirstWord("Abc def ghi"), "def ghi");
         assertEquals(deletedFirstWord("Abc. def ghi"), "def ghi");
         assertEquals(deletedFirstWord("Abcdef ghi"), "ghi");
         assertEquals(deletedFirstWord("Abcdefghi"), "");
 
-
-
-        String testString = "zobowiązani, by przekazać przyszłym pokoleniom wszystko, co cenne" + System.lineSeparator() +
-        "pragnąc na zawsze zagwarantować prawa obywatelskie, a działaniu instytucji pu-" + System.lineSeparator() +
-        "blicznych zapewnić rzetelność i sprawność,";
-
-        Scanner testScanner = new Scanner(testString);
-
-        /*while(testScanner.hasNextLine()){
-
-        }*/
-
+        // No idea how to test other methods
     }
 
 
@@ -116,5 +100,4 @@ public class TextCutterTest{
         if(i == k.length()) return "";
         return k.substring(i+1,k.length());
     }
-
 }

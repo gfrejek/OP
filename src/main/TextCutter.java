@@ -12,7 +12,7 @@ public class TextCutter {
         this.type = t;
     }
 
-
+    // Analyzes each line by assigning PartitionType and creating new PartitionType objects, which are then given to addPartition method
     public void cutPackAdd(Scanner scanner){
 
         String nextLine;
@@ -119,7 +119,7 @@ public class TextCutter {
         }
     }
 
-
+    // Returns PartitionType based on given line (e.g. It would return PartitionType.Article on "Art. 5." input line)
     private PartitionType assignType(String sample){
         if(sample.length() < 2) return PartitionType.Trash;
         if(sample.length() > 16 && sample.substring(1,17).equals("Kancelaria Sejmu")) return PartitionType.Trash2;
@@ -141,7 +141,7 @@ public class TextCutter {
         return PartitionType.Text;
         }
 
-
+    // Returns first word from a given string
     private String firstWord(String k){
         String tmp = "";
         int i = 0;
@@ -153,7 +153,7 @@ public class TextCutter {
         return tmp;
     }
 
-
+    // Returns string with deleted first word
     private String deletedFirstWord(String k){
         int i = 0;
 
@@ -165,7 +165,7 @@ public class TextCutter {
         return k.substring(i+1,k.length());
     }
 
-
+    // Adds TextPartition object to cutFile LinkedList
     private void addPartition(TextPartition addition){
         TextPartition tmp;
 
