@@ -1,6 +1,4 @@
 
-import java.util.Scanner;
-
 public class StatuteReader {
 
     public static void main(String[] arguments){
@@ -25,7 +23,6 @@ public class StatuteReader {
 
         TextViewer textViewer = new TextViewer(textCutter.getPartitionsList());
 
-        Scanner s1;
         boolean contentMode;
 
         try{
@@ -83,6 +80,12 @@ public class StatuteReader {
                         else throw new IllegalArgumentException("Niemożliwe jest wyświetlenie spisu treści litery");
                         break;
                     }
+                    case "preambula": case "preambuła":{
+                        if(contentMode && parser.getFileType() == StatuteType.Constitution) System.out.println(textViewer.viewPreAmbule());
+                        else if(parser.getFileType() == StatuteType.Constitution) throw new IllegalArgumentException("Niemożliwe jest wyświetlenie spisu treści preambuły");
+                        else throw new IllegalArgumentException("Ustawa nie zawiera preambuły");
+                        break;
+                    }
                     default:{
                         throw new IllegalArgumentException("Niepoprawny argument treści, jaką chce się wyświetlić");
                     }
@@ -92,7 +95,7 @@ public class StatuteReader {
             }
         }catch(IllegalArgumentException ex){
             System.out.println(ex.toString());
-            textViewer.viewHelp();
+            System.out.println(textViewer.viewHelp());
         }
 
 

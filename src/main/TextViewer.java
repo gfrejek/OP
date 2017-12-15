@@ -1,9 +1,5 @@
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
-import java.util.Map;
-import java.util.Random;
 
 public class TextViewer {
     private LinkedList<TextPartition> partitionsList;
@@ -15,10 +11,14 @@ public class TextViewer {
     }
 
     public String viewHelp(){
-        StringBuilder sb = new StringBuilder();
-
-
-        return sb.toString();
+        return ("arg1 arg2 arg3 arg4\n" +
+                "arg1 - ścieżka do pliku\n" +
+                "arg2 - tryb wyświetlania [spis, tresc]\n" +
+                "arg3 - obiekt do wyświetlenia [calosc, preambula, dzial, rozdzial, artykul, ustep, punkt, litera]\n" +
+                "arg4 - numer/identyfikator obiektu (np. /SCIEZKA/ tresc artykul 105) \n" +
+                "W przypadku obiektów których nie można wyświetlić samodzielnie trzeba podać również\n" +
+                "numery obiektów, które je zawierają, w kolejności od największego do najmniejszego\n" +
+                "np. /SCIEZKA/ tresc punkt \"nrArtykulu nrUstepu nrPunktu\"\n");
     }
 
     public String viewWhole(){
@@ -156,7 +156,7 @@ public class TextViewer {
             }
         }
         throw new IllegalArgumentException("Rozdział o numerze " + deletedFirstWord(chapterNo).toUpperCase() + " w dziale " + firstWord(chapterNo).toUpperCase() + " nie został znaleziony");
-    }   // Working just fine
+    }
 
     public String viewSection(String sectionNo, StatuteType type){
         String tmp;
@@ -172,8 +172,8 @@ public class TextViewer {
             if(sectionNo.equals(tmp) || tmp.equals(deletedFirstWord(sectionNo)) || sectionNo.equals(tmp + ".") || deletedFirstWord(sectionNo).equals(tmp + "."))
                 return section.toString();
         }
-        if(type == StatuteType.Constitution) return "Rozdział z takim numerem nie istnieje";
-        return "Dział z takim numerem nie istnieje";  //TODO exception?
+        if(type == StatuteType.Constitution) throw new IllegalArgumentException("Rozdział z takim numerem nie istnieje");
+        throw new IllegalArgumentException("Dział z takim numerem nie istnieje");
     }
 
     public String viewSectionTOC(String sectionNo){
@@ -237,17 +237,10 @@ public class TextViewer {
         }
 
         return sb.toString();
-    }   // Working just fine
+    }
 
     public String viewPreAmbule(){
         return partitionsList.getFirst().toString();
-    }
-
-    public String viewRandomArticle(){
-        Random randomGenerator = new Random();
-        int randomInt = randomGenerator.nextInt(articlesList.size());
-
-        return articlesList.get(randomInt).toString();
     }
 
     public String viewParagraph(String paragraphNo){                // "artNo paragraphNo"
@@ -275,7 +268,7 @@ public class TextViewer {
             }
         }
         throw new IllegalArgumentException("Nie znaleziono ustępu " + deletedFirstWord(paragraphNo) + " w artykule o numerze " + firstWord(paragraphNo));
-    }  // Working just fine
+    }
 
     public String viewPoint(String pointPath){
         pointPath = pointPath.replace("\"", "").toLowerCase();
@@ -313,7 +306,7 @@ public class TextViewer {
         }
 
         throw new IllegalArgumentException("Nie znaleziono punktu " + deletedFirstWord(deletedFirstWord(pointPath)) + " w ustępie " + firstWord(deletedFirstWord(pointPath)) + " w artykule o numerze " + firstWord(pointPath));
-    }        // Working just fine
+    }
 
     public String viewLetter(String letterPath){
 
@@ -362,7 +355,7 @@ public class TextViewer {
         }
 
         throw new IllegalArgumentException("Nie znaleziono litery " + deletedFirstWord(deletedFirstWord(deletedFirstWord(letterPath))) + " w punkcie " + firstWord(deletedFirstWord(deletedFirstWord(letterPath))) + " w ustępie " + firstWord(deletedFirstWord(letterPath)) + " w artykule o numerze " + firstWord(letterPath));
-    }      // Working just fine
+    }
 
     public String viewActChapterTOC(String chapterNo){
         chapterNo = chapterNo.replace("\"", "").toLowerCase();
@@ -422,7 +415,7 @@ public class TextViewer {
     private String firstWord(String k){
         String tmp = "";
         int i = 0;
-        while(k != "" && k.charAt(0) == ' ') k = k.substring(1,k.length());
+        while(!k.equals("") && k.charAt(0) == ' ') k = k.substring(1,k.length());
 
         while(k.length()>i && k.charAt(i)!=' ' && !k.substring(i+1,i+2).equals("\n")){
             tmp += k.charAt(i);
