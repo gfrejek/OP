@@ -178,7 +178,7 @@ public class TextViewer {
         throw new IllegalArgumentException("Dział z takim numerem nie istnieje");
     }
 
-    public String viewSectionTOC(String sectionNo){
+    public String viewSectionTOC(String sectionNo, StatuteType sType){
 
         sectionNo = sectionNo.replace("\"", "").toLowerCase();
         StringBuilder sb = new StringBuilder();
@@ -192,11 +192,8 @@ public class TextViewer {
             }
         }
 
-        if(section == null) throw new IllegalArgumentException("Rozdział o numerze " + sectionNo + " nie został znaleziony.");
-
-        if(section.getPartitionName().equals("Preambuła")){
-            return section.getPartitionName();
-        }
+        if(section == null && sType == StatuteType.Constitution) throw new IllegalArgumentException("Rozdział o numerze " + sectionNo + " nie został znaleziony.");
+        else if(section == null) throw new IllegalArgumentException("Dział o numerze " + sectionNo + " nie został znaleziony.");
 
         sb.append(section.getPartitionName().replace("\n", ". ").replace("\r", ""));                             // "Section No. "
         sb.append(section.getText());                                                                            // "Section No. [text]"

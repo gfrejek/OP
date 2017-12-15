@@ -15,7 +15,7 @@ public class StatuteReader {
         TextCutter textCutter = new TextCutter(parser.getFileType());
 
         try{
-            textCutter.cutPackAdd(parser.getScanner());
+            if(parser.getScanner() != null) textCutter.cutPackAdd(parser.getScanner());
         }catch(IllegalArgumentException ex){
             System.out.println(ex.toString());
             canStart = false;
@@ -51,8 +51,14 @@ public class StatuteReader {
                         if(arguments.length < 4) throw new IllegalArgumentException("Za mało argumentów");
                         if(contentMode && parser.getFileType() == StatuteType.Constitution) System.out.println(textViewer.viewSection(arguments[3], StatuteType.Constitution));
                         else if(contentMode) System.out.println(textViewer.viewActChapter(arguments[3]));
-                        else if(parser.getFileType() == StatuteType.Constitution) System.out.println(textViewer.viewSectionTOC(arguments[3]));
+                        else if(parser.getFileType() == StatuteType.Constitution) System.out.println(textViewer.viewSectionTOC(arguments[3], parser.getFileType()));
                         else System.out.println(textViewer.viewActChapterTOC(arguments[3]));
+                        break;
+                    }
+                    case "-dział": case "-d": case "-dzial": case "dzial": case "dział": case "d":{
+                        if(parser.getFileType() == StatuteType.Constitution) throw new IllegalArgumentException("Konstytucja nie jest podzielona na działy");
+                        if(contentMode) System.out.print(textViewer.viewSection(arguments[3],StatuteType.Act));
+                        else System.out.print(textViewer.viewSectionTOC(arguments[3],parser.getFileType()));
                         break;
                     }
                     case "-artykuły": case "-artykuly": case "-zakres": case "artykuly": case "zakres": case "artykuły":{
