@@ -90,10 +90,20 @@ public class TextCutter {
                         tmp += " " + firstWord(nextLine);          // tmp = "Art. No."
                         nextLine = deletedFirstWord(nextLine);     // nextLine = "[text]"
                         currentNode.setPartitionName(tmp);
-                        currentNode.addText(nextLine);
+
+                        if(assignType(nextLine) == PartitionType.Paragraph){
+                            TextPartition paragraph = new TextPartition(PartitionType.Paragraph);
+                            paragraph.setPartitionName(firstWord(nextLine));
+                            paragraph.addText(deletedFirstWord(nextLine));
+                            addPartition(currentNode);
+                            currentNode = paragraph;
+                        }else{
+                            currentNode.addText(nextLine);
+                        }
                     }
 
                     addPartition(currentNode);
+
                     break;
 
 

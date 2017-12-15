@@ -243,7 +243,7 @@ public class TextViewer {
     }
 
     public String viewParagraph(String paragraphNo){                // "artNo paragraphNo"
-        paragraphNo = paragraphNo.replace("\"", "").toLowerCase();
+        paragraphNo = paragraphNo.replace("\"", "").toLowerCase().replace(".", "");
         String tmp;
         TextPartition searchedArticle = null;
 
@@ -262,7 +262,7 @@ public class TextViewer {
         if(searchedArticle == null) throw new IllegalArgumentException("Nie znaleziono artykułu z numerem " + firstWord(paragraphNo));
 
         for(TextPartition paragraph : searchedArticle.getSubPartitions()){
-            if(paragraph.getPartitionName().replace(".", "").equals(deletedFirstWord(paragraphNo).replace(".", ""))){
+            if(paragraph.getPartitionName().replace(".", "").replace(" ", "").equals(deletedFirstWord(paragraphNo).replace(".", ""))){
                 return paragraph.toString();
             }
         }
