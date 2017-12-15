@@ -27,7 +27,7 @@ public class StatuteReader {
 
         try{
             if(canStart){
-                if(arguments.length < 3) throw new IllegalArgumentException("Za mało argumentów" + textViewer.viewHelp());
+                if(arguments.length < 3) throw new IllegalArgumentException("Za mało argumentów");
                 String mode = arguments[1].replace("\"", "");
 
                 if(mode.equals("-s") || mode.equals("-spis") || mode.equals("spis") || mode.equals("s")) contentMode = false;
